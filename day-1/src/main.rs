@@ -1,5 +1,5 @@
 fn main()  {
-    let input = include_str!("./data.txt");
+    let input = std::fs::read_to_string("./data.txt").unwrap();
 
     let lines = input.split("\n\n");
 
