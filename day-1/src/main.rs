@@ -1,5 +1,3 @@
-use std::env;
-use std::fs::File;
 fn main()  {
     let input = include_str!("./data.txt");
 
