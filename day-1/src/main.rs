@@ -9,7 +9,7 @@ fn main()  {
         .sum::<u32>())
         .collect();
 
-        lines_parsed.sort_by(|a, b| b.cmp(a));
+    lines_parsed.sort_by(|a, b| b.cmp(a));
 
     println!("Part 1: {:?}", lines_parsed[0]);
     println!(
