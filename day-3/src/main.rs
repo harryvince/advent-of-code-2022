@@ -11,13 +11,15 @@ fn main() {
         let compartment_two: String = line.chars().skip(compartment_size).collect();
         
         'outer: for x in 0..compartment_one.len() {
+            let value_for_cmp1 = &compartment_one.chars().nth(x).unwrap();
             for y in 0..compartment_two.len() {
-                if &compartment_two.chars().nth(y).unwrap() == &compartment_one.chars().nth(x).unwrap() {
-                    if compartment_two.chars().nth(y).unwrap().is_uppercase() {
-                        collection.push(compartment_two.chars().nth(y).unwrap() as u32 - 38);
+                let value_for_cmp2 = &compartment_two.chars().nth(y).unwrap();
+                if value_for_cmp2 == value_for_cmp1 {
+                    if value_for_cmp2.is_uppercase() {
+                        collection.push(*value_for_cmp2 as u32 - 38);
                         break 'outer;
                     } else {
-                        collection.push(compartment_two.chars().nth(y).unwrap() as u32 - 96);
+                        collection.push(*value_for_cmp2 as u32 - 96);
                         break 'outer;
                     }
                 }
