@@ -21,8 +21,8 @@ fn main() {
     let mut counter = 1;
     for line in lines {
         let compartment_size = line.len() / 2;
-        let compartment_one: String = line.chars().take(compartment_size).collect();
-        let compartment_two: String = line.chars().skip(compartment_size).collect();
+        let compartment_one: String = line.chars().take(compartment_size).unique().collect();
+        let compartment_two: String = line.chars().skip(compartment_size).unique().collect();
         
         'outer: for x in 0..compartment_one.len() {
             let value_for_cmp1 = &compartment_one.chars().nth(x).unwrap();
