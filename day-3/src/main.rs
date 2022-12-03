@@ -16,7 +16,7 @@ fn main() {
     let mut collection: Vec<u32> = Vec::new();
 
     let mut lines_3: Vec<char> = Vec::new();
-    let mut all_badges: Vec<u32> = Vec::new();
+    let mut part2_answer: u32 = 0;
 
     let mut counter = 1;
     for line in lines {
@@ -42,13 +42,12 @@ fn main() {
         if counter % 3 == 1 {
             lines_3.sort();
             let badge: Vec<(usize, char)> = lines_3.clone().into_iter().dedup_with_count().filter(|&value| value.0 == 3).collect();
-            all_badges.push(get_value(&badge[0].1));
+            part2_answer += get_value(&badge[0].1);
             lines_3.clear();
             counter = 1;
         }
     }
     let part1_answer: u32 = collection.iter().sum();
-    let part2_answer: u32 = all_badges.iter().sum();
     println!("Part 1 Answer: {}", part1_answer);
     println!("Part 2 Answer: {}", part2_answer);
 }
