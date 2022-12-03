@@ -13,10 +13,10 @@ fn main() {
     
     let lines = input.split("\n");
 
-    let mut collection: Vec<u32> = Vec::new();
+    let mut part1_answer: u32 = 0;
+    let mut part2_answer: u32 = 0;
 
     let mut lines_3: Vec<char> = Vec::new();
-    let mut part2_answer: u32 = 0;
 
     let mut counter = 1;
     for line in lines {
@@ -29,7 +29,7 @@ fn main() {
             for y in 0..compartment_two.len() {
                 let value_for_cmp2 = &compartment_two.chars().nth(y).unwrap();
                 if value_for_cmp2 == value_for_cmp1 {
-                        collection.push(get_value(value_for_cmp2));
+                        part1_answer += get_value(value_for_cmp2);
                         break 'outer;
                 }
             }
@@ -47,7 +47,6 @@ fn main() {
             counter = 1;
         }
     }
-    let part1_answer: u32 = collection.iter().sum();
     println!("Part 1 Answer: {}", part1_answer);
     println!("Part 2 Answer: {}", part2_answer);
 }
