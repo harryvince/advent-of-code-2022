@@ -1,7 +1,7 @@
 use anyhow::Result;
 
 fn main() -> Result<()> {
-    let input: Vec<String> = std::fs::read_to_string("./src/input.test")?
+    let input: Vec<String> = std::fs::read_to_string("./src/input")?
     .lines()
     .map(|value| String::from(value))
     .collect();
